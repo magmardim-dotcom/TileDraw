@@ -29,7 +29,7 @@ local function changeMapH(map, n)
 end
 
 return funct.windowNew {
-		X = 1050,
+		X = 1160,
 		Y = 0,
 		Width = love.graphics.getWidth() - 650,
 		Height = love.graphics.getHeight(),

@@ -18,12 +18,21 @@ return funct.windowNew {
 					end
 				end
 			end
-			love.graphics.setColor(0,0,0)
+			love.graphics.setColor(0,0,0,.5)
 			for x = 0, Width-1 do
 				love.graphics.line(Cellsize * x, 0, Cellsize * x, self.Height)
 			end
 			for y = 0, Height-1 do
 				love.graphics.line(0, Cellsize * y, self.Width, Cellsize * y)
+			end
+			
+			love.graphics.setColor(1,0,0)
+			local w4, h4 = self.Width/4,  self.Height/4
+			for x = 0, 3 do
+				love.graphics.line(w4 * x, 0, w4 * x, self.Height)
+			end
+			for y = 0, 3 do
+				love.graphics.line(0, h4 * y, self.Width, h4 * y)
 			end
 		end,
 		buttons = {funct.buttonNew {
