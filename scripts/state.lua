@@ -6,4 +6,5 @@ SelectTs = 3
 scale = 1
 ofx = 0
 ofy = 0
+grid = true
 

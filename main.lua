@@ -36,7 +36,7 @@ function love.draw()
 	love.graphics.setColor(0, 0, 0)
 	
 	local msg = "X:	"..math.ceil(love.mouse.getX()/Cellsize).."\n".."Y:	"..math.ceil(love.mouse.getY()/Cellsize).."\nWidth:	"..Width..'\nHeight:	'..Height
-	love.graphics.print(msg, 1260, 100)
+	love.graphics.print(msg, 910, 100)
 end
 
 function love.update(dt)
@@ -62,6 +62,8 @@ function love.keypressed(key)
 		scale = scale <= 0.1 and 0.1 or scale - 0.1
 	elseif key == "x" then
 		scale = scale >= 1 and 1 or scale + 0.1
+	elseif key == "g" then
+		grid = not grid
 	end
 	
 	if key == "w" then

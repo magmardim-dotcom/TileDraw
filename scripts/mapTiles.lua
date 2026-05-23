@@ -1,6 +1,6 @@
 return funct.windowNew {
-		Width = Width * Cellsize,
-		Height = Height * Cellsize,
+		Width = 900,
+		Height = 600,
 		bgColor = {1,1,1},
 		drawItem = function(self)
 			love.graphics.setColor(1,1,1)
@@ -18,6 +18,8 @@ return funct.windowNew {
 					end
 				end
 			end
+			
+			if not grid then return false end
 			love.graphics.setColor(0,0,0,.5)
 			for x = 0, Width-1 do
 				love.graphics.line(Cellsize * x, 0, Cellsize * x, self.Height)
@@ -28,10 +30,10 @@ return funct.windowNew {
 			
 			love.graphics.setColor(1,0,0)
 			local w4, h4 = self.Width/4,  self.Height/4
-			for x = 0, 3 do
+			for x = 0, 4 do
 				love.graphics.line(w4 * x, 0, w4 * x, self.Height)
 			end
-			for y = 0, 3 do
+			for y = 0, 4 do
 				love.graphics.line(0, h4 * y, self.Width, h4 * y)
 			end
 		end,
@@ -40,11 +42,13 @@ return funct.windowNew {
 			Height = Height * Cellsize,
 			act = function(s)
 				local mx, my = love.mouse.getPosition()
+				mx = (mx + ofx)/scale
+				my = (my + ofy)/scale
 				mx = math.ceil(mx/Cellsize)
 				my = math.ceil(my/Cellsize)
-				if love.mouse.isDown(1) then
+				if love.mouse.isDown(1) and Map[my] and Map[my][mx] then
 					Map[my][mx] = drawTile
-				elseif love.mouse.isDown(2) then
+				elseif love.mouse.isDown(2) and Map[my] and Map[my][mx] then
 					Map[my][mx] = 0
 				end
 			end}
